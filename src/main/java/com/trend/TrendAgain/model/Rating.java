@@ -7,6 +7,7 @@ import java.util.Date;
 @Entity
 @Table(name = "ratings")
 public class Rating {
+    @Column(name = "rating_id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -25,7 +26,7 @@ public class Rating {
     @Column
     private String review;
 
-    @Column(nullable = false, updatable = false)
+    @Column
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
 
@@ -35,7 +36,7 @@ public class Rating {
         this.product = product;
         this.rating = rating;
         this.review = review;
-        this.createdAt = createdAt;
+        this.createdAt = (createdAt != null) ? createdAt : new Date();
     }
 
     public Rating() {

@@ -7,6 +7,7 @@ import java.util.Date;
 @Entity
 @Table(name = "favorites")
 public class Favorite {
+    @Column(name = "favorite_id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -19,7 +20,7 @@ public class Favorite {
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 
-    @Column(nullable = false, updatable = false)
+    @Column
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
 
@@ -27,7 +28,7 @@ public class Favorite {
         this.id = id;
         this.user = user;
         this.product = product;
-        this.createdAt = createdAt;
+        this.createdAt = (createdAt != null) ? createdAt : new Date();
     }
 
     public Favorite() {

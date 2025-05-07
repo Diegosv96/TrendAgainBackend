@@ -7,6 +7,7 @@ import java.util.Date;
 @Entity
 @Table(name = "products")
 public class Product {
+    @Column(name = "product_id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -28,11 +29,11 @@ public class Product {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @Column(nullable = false, updatable = false)
+    @Column
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
 
-    @Column(nullable = false)
+    @Column
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
 
@@ -43,8 +44,8 @@ public class Product {
         this.description = description;
         this.price = price;
         this.category = category;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
+        this.createdAt = (createdAt != null) ? createdAt : new Date();
+        this.updatedAt = new Date();
     }
 
     public Product() {

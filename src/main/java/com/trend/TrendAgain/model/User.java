@@ -7,6 +7,7 @@ import java.util.Date;
 @Entity
 @Table(name = "users")
 public class User {
+    @Column(name = "user_id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -29,11 +30,11 @@ public class User {
     @Column
     private Date dateOfBirth;
 
-    @Column(nullable = false, updatable = false)
+    @Column
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
 
-    @Column(nullable = false)
+    @Column
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
 
@@ -45,8 +46,8 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
+        this.createdAt = (createdAt != null) ? createdAt : new Date();
+        this.updatedAt = new Date();
     }
 
     public User() {

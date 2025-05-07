@@ -7,6 +7,7 @@ import java.util.Date;
 @Entity
 @Table(name = "transactions")
 public class Transaction {
+    @Column(name = "transaction_id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -22,7 +23,7 @@ public class Transaction {
     @Column(nullable = false)
     private double amount;
 
-    @Column(nullable = false, updatable = false)
+    @Column
     @Temporal(TemporalType.TIMESTAMP)
     private Date transactionDate;
 

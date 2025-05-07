@@ -7,6 +7,7 @@ import java.util.Date;
 @Entity
 @Table(name = "product_images")
 public class ProductImage {
+    @Column(name = "image_id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -18,7 +19,7 @@ public class ProductImage {
     @Column(nullable = false)
     private String imageUrl;
 
-    @Column(nullable = false, updatable = false)
+    @Column
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
 
@@ -26,7 +27,7 @@ public class ProductImage {
         this.id = id;
         this.product = product;
         this.imageUrl = imageUrl;
-        this.createdAt = createdAt;
+        this.createdAt = (createdAt != null) ? createdAt : new Date();
     }
 
     public ProductImage() {
