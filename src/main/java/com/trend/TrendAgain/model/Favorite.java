@@ -9,7 +9,7 @@ import java.util.Date;
 public class Favorite {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int favoriteId;
+    private int id;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", nullable = false)
@@ -23,8 +23,8 @@ public class Favorite {
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
 
-    public Favorite(int favoriteId, User user, Product product, Date createdAt) {
-        this.favoriteId = favoriteId;
+    public Favorite(int id, User user, Product product, Date createdAt) {
+        this.id = id;
         this.user = user;
         this.product = product;
         this.createdAt = createdAt;
@@ -34,11 +34,11 @@ public class Favorite {
     }
 
     public int getFavoriteId() {
-        return favoriteId;
+        return id;
     }
 
-    public void setFavoriteId(int favoriteId) {
-        this.favoriteId = favoriteId;
+    public void setFavoriteId(int id) {
+        this.id = id;
     }
 
     public User getUser() {

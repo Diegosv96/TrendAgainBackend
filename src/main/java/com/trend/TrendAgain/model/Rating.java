@@ -9,7 +9,7 @@ import java.util.Date;
 public class Rating {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int ratingId;
+    private int id;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", nullable = false)
@@ -29,8 +29,8 @@ public class Rating {
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
 
-    public Rating(int ratingId, User user, Product product, int rating, String review, Date createdAt) {
-        this.ratingId = ratingId;
+    public Rating(int id, User user, Product product, int rating, String review, Date createdAt) {
+        this.id = id;
         this.user = user;
         this.product = product;
         this.rating = rating;
@@ -42,11 +42,11 @@ public class Rating {
     }
 
     public int getRatingId() {
-        return ratingId;
+        return id;
     }
 
-    public void setRatingId(int ratingId) {
-        this.ratingId = ratingId;
+    public void setRatingId(int id) {
+        this.id = id;
     }
 
     public User getUser() {

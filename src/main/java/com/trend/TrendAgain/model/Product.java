@@ -9,7 +9,7 @@ import java.util.Date;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int productId;
+    private int id;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", nullable = false)
@@ -36,8 +36,8 @@ public class Product {
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
 
-    public Product(int productId, User user, String name, String description, double price, Category category, Date createdAt, Date updatedAt) {
-        this.productId = productId;
+    public Product(int id, User user, String name, String description, double price, Category category, Date createdAt, Date updatedAt) {
+        this.id = id;
         this.user = user;
         this.name = name;
         this.description = description;
@@ -51,11 +51,11 @@ public class Product {
     }
 
     public int getProductId() {
-        return productId;
+        return id;
     }
 
-    public void setProductId(int productId) {
-        this.productId = productId;
+    public void setProductId(int id) {
+        this.id = id;
     }
 
     public User getUser() {

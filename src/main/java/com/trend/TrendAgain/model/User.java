@@ -9,7 +9,7 @@ import java.util.Date;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int userId;
+    private int id;
 
     @Column(unique = true, nullable = false)
     private String username;
@@ -37,8 +37,8 @@ public class User {
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
 
-    public User(int userId, String username, String email, String passwordHash, String firstName, String lastName, Date dateOfBirth, Date createdAt, Date updatedAt) {
-        this.userId = userId;
+    public User(int id, String username, String email, String passwordHash, String firstName, String lastName, Date dateOfBirth, Date createdAt, Date updatedAt) {
+        this.id = id;
         this.username = username;
         this.email = email;
         this.passwordHash = passwordHash;
@@ -53,11 +53,11 @@ public class User {
     }
 
     public int getUserId() {
-        return userId;
+        return id;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUserId(int id) {
+        this.id = id;
     }
 
     public String getUsername() {

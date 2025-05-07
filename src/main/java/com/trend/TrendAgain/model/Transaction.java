@@ -9,7 +9,7 @@ import java.util.Date;
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int transactionId;
+    private int id;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "buyer_id", nullable = false)
@@ -26,8 +26,8 @@ public class Transaction {
     @Temporal(TemporalType.TIMESTAMP)
     private Date transactionDate;
 
-    public Transaction(int transactionId, User buyer, Product product, double amount, Date transactionDate) {
-        this.transactionId = transactionId;
+    public Transaction(int id, User buyer, Product product, double amount, Date transactionDate) {
+        this.id = id;
         this.buyer = buyer;
         this.product = product;
         this.amount = amount;
@@ -38,11 +38,11 @@ public class Transaction {
     }
 
     public int getTransactionId() {
-        return transactionId;
+        return id;
     }
 
-    public void setTransactionId(int transactionId) {
-        this.transactionId = transactionId;
+    public void setTransactionId(int id) {
+        this.id = id;
     }
 
     public User getBuyer() {

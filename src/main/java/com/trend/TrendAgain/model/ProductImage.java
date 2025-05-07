@@ -9,7 +9,7 @@ import java.util.Date;
 public class ProductImage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int imageId;
+    private int id;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "product_id", nullable = false)
@@ -22,8 +22,8 @@ public class ProductImage {
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
 
-    public ProductImage(int imageId, Product product, String imageUrl, Date createdAt) {
-        this.imageId = imageId;
+    public ProductImage(int id, Product product, String imageUrl, Date createdAt) {
+        this.id = id;
         this.product = product;
         this.imageUrl = imageUrl;
         this.createdAt = createdAt;
@@ -33,11 +33,11 @@ public class ProductImage {
     }
 
     public int getImageId() {
-        return imageId;
+        return id;
     }
 
-    public void setImageId(int imageId) {
-        this.imageId = imageId;
+    public void setImageId(int id) {
+        this.id = id;
     }
 
     public Product getProduct() {
