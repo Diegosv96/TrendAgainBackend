@@ -2,7 +2,9 @@ package com.trend.TrendAgain.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "products")
@@ -15,6 +17,9 @@ public class Product {
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<ProductImage> productImages  = new ArrayList<>();
 
     @Column(nullable = false)
     private String name;
@@ -51,6 +56,13 @@ public class Product {
     public Product() {
     }
 
+    public List<ProductImage> getProductImages() {
+        return productImages;
+    }
+
+    public void setProductImages(List<ProductImage> productImages) {
+        this.productImages = productImages;
+    }
     public int getProductId() {
         return id;
     }
