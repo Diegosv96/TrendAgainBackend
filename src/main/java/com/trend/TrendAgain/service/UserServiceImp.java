@@ -27,4 +27,9 @@ public class UserServiceImp implements UserService {
     public User getUserByEmail(String email) {
         return userRepository.findByEmail(email).stream().findFirst().orElse(null);
     }
+
+    @Override
+    public User getUserByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
 }
