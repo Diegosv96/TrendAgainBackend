@@ -29,4 +29,9 @@ public class UserController {
     public ResponseEntity<User> getUserByEmail(@RequestParam String email) {
         return new ResponseEntity<>(userService.getUserByEmail(email), HttpStatus.OK);
     }
+
+    @GetMapping("/getByUsername")
+    public ResponseEntity<User> getUserByUsername(@RequestParam String username) {
+        return new ResponseEntity<>(userService.getUserByUsername(username), HttpStatus.OK);
+    }
 }

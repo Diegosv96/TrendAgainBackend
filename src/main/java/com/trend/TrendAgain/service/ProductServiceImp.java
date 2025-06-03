@@ -26,7 +26,6 @@ public class ProductServiceImp implements ProductService {
     public List<Product> getProductsByCategory(int categoryId) {
         return productRepository.findByCategoryId(categoryId);
     }
-
     @Override
     public Product getById(int id) {
         return productRepository.findById(id);

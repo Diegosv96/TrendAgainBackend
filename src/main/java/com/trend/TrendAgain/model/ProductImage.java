@@ -35,11 +35,11 @@ public class ProductImage {
     public ProductImage() {
     }
 
-    public int getImageId() {
+    public int getId() {
         return id;
     }
 
-    public void setImageId(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 

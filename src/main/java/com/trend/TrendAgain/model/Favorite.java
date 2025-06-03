@@ -40,11 +40,11 @@ public class Favorite {
     public Favorite() {
     }
 
-    public int getFavoriteId() {
+    public int getId() {
         return id;
     }
 
-    public void setFavoriteId(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 

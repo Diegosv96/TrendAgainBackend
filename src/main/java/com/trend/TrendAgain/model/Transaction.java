@@ -45,11 +45,11 @@ public class Transaction {
     public Transaction() {
     }
 
-    public int getTransactionId() {
+    public int getId() {
         return id;
     }
 
-    public void setTransactionId(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 

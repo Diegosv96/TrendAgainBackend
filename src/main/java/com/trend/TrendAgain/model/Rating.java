@@ -42,11 +42,11 @@ public class Rating {
     public Rating() {
     }
 
-    public int getRatingId() {
+    public int getId() {
         return id;
     }
 
-    public void setRatingId(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
