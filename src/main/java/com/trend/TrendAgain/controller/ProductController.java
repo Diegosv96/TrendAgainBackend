@@ -29,4 +29,9 @@ public class ProductController {
     public ResponseEntity<List<Product>> getProductsByCategory(@RequestParam int categoryId) {
         return new ResponseEntity<>(productService.getProductsByCategory(categoryId), HttpStatus.OK);
     }
+
+    @GetMapping("getById")
+    public ResponseEntity<Product> getProductById(@RequestParam int productId) {
+        return new ResponseEntity<>(productService.getById(productId),HttpStatus.OK);
+    }
 }
