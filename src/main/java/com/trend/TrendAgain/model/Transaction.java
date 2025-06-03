@@ -35,6 +35,13 @@ public class Transaction {
         this.transactionDate = transactionDate;
     }
 
+    public Transaction(User buyer, Product product, double amount, Date transactionDate) {
+        this.buyer = buyer;
+        this.product = product;
+        this.amount = amount;
+        this.transactionDate = transactionDate;
+    }
+
     public Transaction() {
     }
 

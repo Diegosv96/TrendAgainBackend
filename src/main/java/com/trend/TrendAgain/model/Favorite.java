@@ -31,6 +31,12 @@ public class Favorite {
         this.createdAt = (createdAt != null) ? createdAt : new Date();
     }
 
+    public Favorite(User user, Product product, Date createdAt) {
+        this.user = user;
+        this.product = product;
+        this.createdAt = (createdAt != null) ? createdAt : new Date();
+    }
+
     public Favorite() {
     }
 
