@@ -1,5 +1,6 @@
 package com.trend.TrendAgain.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -25,6 +26,7 @@ public class Transaction {
 
     @Column
     @Temporal(TemporalType.TIMESTAMP)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
     private Date transactionDate;
 
     public Transaction(int id, User buyer, Product product, double amount, Date transactionDate) {

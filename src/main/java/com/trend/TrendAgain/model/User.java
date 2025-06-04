@@ -1,5 +1,6 @@
 package com.trend.TrendAgain.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -28,14 +29,17 @@ public class User {
     private String lastName;
 
     @Column
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
     private Date dateOfBirth;
 
     @Column
     @Temporal(TemporalType.TIMESTAMP)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
     private Date createdAt;
 
     @Column
     @Temporal(TemporalType.TIMESTAMP)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
     private Date updatedAt;
 
     public User(int id, String username, String email, String passwordHash, String firstName, String lastName, Date dateOfBirth, Date createdAt, Date updatedAt) {
